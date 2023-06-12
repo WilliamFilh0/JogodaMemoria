@@ -12,7 +12,9 @@ const validateInput = ( {target}) => {
 
 const hanldeSubmit = (event) => {
   event.preventDefault();
-  console.log('logando...')
+
+  localStorage.setItem('player', input.value);
+  
 }
 
 input.addEventListener('input', validateInput);
