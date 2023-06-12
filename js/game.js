@@ -1,5 +1,18 @@
 const grid = document.querySelector('.grid');
 
+const cards = [
+  'beth',
+  'jerry',
+  'jessica',
+  'morty',
+  'pessoa-passaro',
+  'pickle-rick',
+  'rick',
+  'summer',
+  'meeseeks',
+  'scroopy',
+];
+
 const createElement = (tag, className) => {
   const element = document.createElement(tag);
   element.className = className;
@@ -16,8 +29,12 @@ const createCard = () => {
   card.appendChild(front);
   card.appendChild(back);
 
-  grid.appendChild(card);
+   return card;
 
 }
 
-createCard();
+const loadGame = () => {
+
+  cards.forEach();
+
+}
