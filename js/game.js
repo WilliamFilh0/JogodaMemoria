@@ -19,6 +19,10 @@ const createElement = (tag, className) => {
   return element;
 }
 
+const revealCard = ({ target }) => {
+  target.parentNode.classList.add('reveal-card');
+}
+
 const createCard = (character) => {
 
   const card = createElement('div', 'card');
@@ -30,10 +34,10 @@ const createCard = (character) => {
   front.style.backgroundImage = `url('../images/${character}.png')`;
 
 
-
-
   card.appendChild(front);
   card.appendChild(back);
+
+  card.addEventListener('click', revealCard);
 
   return card;
 
