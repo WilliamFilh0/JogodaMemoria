@@ -1,6 +1,6 @@
 const grid = document.querySelector('.grid');
 
-const cards = [
+const characters = [
   'beth',
   'jerry',
   'jessica',
@@ -19,11 +19,17 @@ const createElement = (tag, className) => {
   return element;
 }
 
-const createCard = () => {
+const createCard = (character) => {
 
   const card = createElement('div', 'card');
   const front = createElement('div', 'face front');
-  const back = document.createElement('div', 'face back');
+  const back = document.createElement('div');
+  back.className = 'face back';
+
+
+  front.style.backgroundImage = `url('../images/${character}.png')`;
+
+
 
   
   card.appendChild(front);
@@ -34,7 +40,11 @@ const createCard = () => {
 }
 
 const loadGame = () => {
+  characters.forEach((characters) => {
 
-  cards.forEach();
+    const card = createCard(characters);
+    grid.appendChild(card);
+  });
+};
 
-}
+loadGame();
