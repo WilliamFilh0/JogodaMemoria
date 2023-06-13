@@ -31,16 +31,21 @@ const createCard = (character) => {
 
 
 
-  
+
   card.appendChild(front);
   card.appendChild(back);
 
-   return card;
+  return card;
 
 }
 
 const loadGame = () => {
-  characters.forEach((characters) => {
+
+  const duplicateCharacters = [...characters, ...characters];
+
+  const shuffledArray = duplicateCharacters.sort( () => Math.random() -0.5 );
+
+  shuffledArray.forEach((characters) => {
 
     const card = createCard(characters);
     grid.appendChild(card);
