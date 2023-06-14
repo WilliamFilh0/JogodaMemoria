@@ -19,14 +19,28 @@ const createElement = (tag, className) => {
   return element;
 }
 
-let firstCard= '';
-let secondCard= '';
+let firstCard = '';
+let secondCard = '';
 
 const checkCards = () => {
-  const firstCharacter = firstCard.getAtribute('data-character');
-  const secondCharacter = secondCard.getAtribute('data-character');
+  const firstCharacter = firstCard.getAttribute('data-character');
+  const secondCharacter = secondCard.getAttribute('data-character');
 
- 
+  if (firstCharacter === secondCharacter) {
+
+  } else {
+
+    setTimeout(() => {
+      firstCard.classList.remove('reveal-card');
+      secondCard.classList.remove('reveal-card');
+
+      firstCard = '';
+      secondCard = '';
+
+
+    }, 500);
+
+  }
 }
 
 
@@ -78,7 +92,7 @@ const loadGame = () => {
 
   const duplicateCharacters = [...characters, ...characters];
 
-  const shuffledArray = duplicateCharacters.sort( () => Math.random() -0.5 );
+  const shuffledArray = duplicateCharacters.sort(() => Math.random() - 0.5);
 
   shuffledArray.forEach((characters) => {
 
