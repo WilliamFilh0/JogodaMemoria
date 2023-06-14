@@ -23,10 +23,10 @@ let firstCard = '';
 let secondCard = '';
 
 const checkEndGame = () => {
-  const disabledCard = document.querySelectorAll('disabled-card');
+  const disabledCards = document.querySelectorAll('.disabled-card');
 
-  if(disabledCard.length === 20){
-    alert('Parabens, você conseguiu!')
+  if(disabledCards.length === 20){
+    alert('Parabens, você conseguiu!');
   }
 }
 
