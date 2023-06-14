@@ -19,9 +19,39 @@ const createElement = (tag, className) => {
   return element;
 }
 
-const revealCard = ({ target }) => {
-  target.parentNode.classList.add('reveal-card');
+let firstCard= '';
+let secondCard= '';
+
+const checkCards = () => {
+  const firstCharacter = firstCard.getAtribute('data-character');
+  const secondCharacter = secondCard.getAtribute('data-character');
+
+ 
 }
+
+
+const revealCard = ({ target }) => {
+
+  if (target.parentNode.className.includes('reveal-card')) {
+    return;
+  }
+
+  if (firstCard === '') {
+
+    target.parentNode.classList.add('reveal-card');
+    firstCard = target.parentNode;
+
+  } else if (secondCard === '') {
+
+    target.parentNode.classList.add('reveal-card');
+    secondCard = target.parentNode;
+
+    checkCards();
+
+  }
+}
+
+
 
 const createCard = (character) => {
 
@@ -38,6 +68,7 @@ const createCard = (character) => {
   card.appendChild(back);
 
   card.addEventListener('click', revealCard);
+  card.setAttribute('data-character', character)
 
   return card;
 
