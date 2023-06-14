@@ -59,7 +59,6 @@ const checkCards = () => {
   }
 }
 
-
 const revealCard = ({ target }) => {
 
   if (target.parentNode.className.includes('reveal-card')) {
@@ -81,8 +80,6 @@ const revealCard = ({ target }) => {
   }
 }
 
-
-
 const createCard = (character) => {
 
   const card = createElement('div', 'card');
@@ -90,9 +87,7 @@ const createCard = (character) => {
   const back = document.createElement('div');
   back.className = 'face back';
 
-
   front.style.backgroundImage = `url('../images/${character}.png')`;
-
 
   card.appendChild(front);
   card.appendChild(back);
@@ -104,17 +99,33 @@ const createCard = (character) => {
 
 }
 
+const flipCards = () => {
+  const cards = document.querySelectorAll('.card');
+
+  cards.forEach((card) => {
+    card.classList.add('reveal-card');
+  });
+
+  setTimeout(() => {
+    cards.forEach((card) => {
+      card.classList.remove('reveal-card');
+    });
+  }, 2000);
+};
+
 const loadGame = () => {
 
   const duplicateCharacters = [...characters, ...characters];
 
   const shuffledArray = duplicateCharacters.sort(() => Math.random() - 0.5);
 
-  shuffledArray.forEach((characters) => {
+  shuffledArray.forEach((character) => {
 
-    const card = createCard(characters);
+    const card = createCard(character);
     grid.appendChild(card);
   });
+
+  flipCards();
 };
 
 loadGame();
